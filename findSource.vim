@@ -2,10 +2,10 @@ fun! FindSource()
   let word = expand("<cword>")
 
   if has("mac") || has("macunix")
-    let cmd = 'egrep -Rlw "(class|(public|private|abstract) function) ' . word . '" * | grep -v "cache" | grep -v "log" | grep -v ".svn"'
+    let cmd = 'egrep -Rlw "(class|(public|private|abstract|protected) function) ' . word . '" * | grep -v "cache" | grep -v "log" | grep -v ".svn"'
   elseif has("unix")
     " temp: mac/macunix not catching correctly.
-    let cmd = 'egrep -Rlw "(class|(public|private|abstract) function) ' . word . '" * | grep -v "cache" | grep -v "log" | grep -v ".svn"'
+    let cmd = 'egrep -Rlw "(class|(public|private|abstract|protected) function) ' . word . '" * | grep -v "cache" | grep -v "log" | grep -v ".svn"'
 
     "let cmd = 'egrep -Rlw --exclude-dirs=".svn cache" --exclude-dir="cache" "(class|function) ' . word . '" *'
   elseif has("win32") || has("win64")
